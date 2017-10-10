@@ -1,0 +1,2 @@
+CLIENT_SECRET_FILE = '/full/path/to/client_secret.json'
+CREDENTIALS_FILE_NAME = 'credentials.json'
