@@ -1,3 +1,5 @@
+**Note**: This will only monitor the starred gists.
+
 # Installation
 
 Create a virtualenv -  
