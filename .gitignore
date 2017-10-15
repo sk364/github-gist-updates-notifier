@@ -103,3 +103,4 @@ ENV/
 # config files
 config.py
 mailer_config.py
+.last_timestamp
