@@ -63,19 +63,17 @@ if __name__ == '__main__':
         with open(os.path.join(BASE_DIR, '.last_timestamp'), 'w') as f:
             f.write('')
 
-    sleep_time = 120
+    sleep_time = 3600
     print 'Daemon running...'
 
     while True:
-        with open(os.path.join(BASE_DIR, '.last_timestamp')) as f:
-            LAST_UPDATED_AT = f.read()
+        try:
+            with open(os.path.join(BASE_DIR, '.last_timestamp')) as f:
+                LAST_UPDATED_AT = f.read()
 
-        notify()
+            notify()
 
-        print 'Sleeping...'
-        time.sleep(sleep_time)
-
-        sleep_time = sleep_time * 2
-        if sleep_time > 21600:              # reset sleep time if more than 6 hours
-            sleep_time = 120
-
+            print 'Sleeping...'
+            time.sleep(sleep_time)
+        except requests.exceptions.ConnectionError:
+            pass
